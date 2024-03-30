@@ -27,13 +27,60 @@
             border-radius: 50px; /* Rounded border radius */
             margin: 0 5px; /* Increased horizontal space between buttons */
             display: inline-block; /* Ensure buttons stay in line */
-            background-color: #007bff; /* Set button background color */
+            background-color: #007bff; /* Set initial button background color */
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        nav a:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background-color: rgba(255, 255, 255, 0.5);
+            transition: all 0.4s ease;
+            border-radius: 50%;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            animation: glow 2s infinite alternate; /* Animation for glowing effect */
+        }
+        @keyframes glow {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 1;
+                background-color: rgba(255, 255, 255, 0.5); /* Start with a base color */
+            }
+            25% {
+                background-color: rgba(255, 0, 0, 0.5); /* Change to red */
+            }
+            50% {
+                background-color: rgba(0, 255, 0, 0.5); /* Change to green */
+            }
+            75% {
+                background-color: rgba(0, 0, 255, 0.5); /* Change to blue */
+            }
+            100% {
+                width: 300%;
+                height: 300%;
+                opacity: 0;
+                background-color: rgba(255, 255, 255, 0.5); /* End with the base color */
+            }
+        }
+        nav a:hover:before {
+            width: 0;
+            height: 0;
+            opacity: 1;
         }
         nav a:hover {
-            background-color: #0056b3;
+            color: #fff;
         }
-        .content {
-            padding: 20px;
+        nav a span {
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
@@ -43,9 +90,9 @@
         <input type="text" placeholder="Search...">
     </header>
     <nav>
-        <a href="ai history.html">History</a>
-        <a href="science.html">Science</a>
-        <a href="technology.html">Technology</a>
+        <a href="ai history.html"><span>History</span></a>
+        <a href="science.html"><span>Science</span></a>
+        <a href="#"><span>Technology</span></a>
         <!-- Add more buttons as needed -->
     </nav>
     <div class="content">
@@ -55,7 +102,26 @@
         <p>With its ability to comprehend and generate text in multiple languages, Devin AI is revolutionizing various industries such as journalism, customer service, and education. Its capabilities continue to evolve, making it a powerful tool for businesses and developers seeking to integrate AI into their products and services.</p>
     </div>
     <footer>
-        <p>Copyright © 2024 Wahid Yaseen. All rights reserved.</p>
+        <!-- Footer content here -->
     </footer>
+    <script>
+        // JavaScript to continuously change button background color
+        const buttons = document.querySelectorAll('nav a');
+        buttons.forEach(button => {
+            setInterval(function() {
+                const randomColor = getRandomColor();
+                button.style.backgroundColor = randomColor;
+            }, 2000); // Change color every 2 seconds
+        });
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
 </body>
 </html>
