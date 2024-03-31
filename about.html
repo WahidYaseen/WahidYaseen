@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      color: #fff; /* Set default text color to white */
+    }
+    .btn-container {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 10px 5%;
+      box-sizing: border-box;
+      z-index: 999;
+    }
+    .btn {
+      width: auto;
+      height: auto;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 25px;
+      text-transform: uppercase;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      white-space: nowrap;
+      margin: 0 5px;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 20px;
+      animation: glow 1.5s infinite alternate; /* Added glow animation */
+      background-color: #ff007f; /* Pink color */
+    }
+    .btn::before {
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(120deg, transparent, #ff007f, transparent); /* Pink gradient */
+      transform: translateX(-100px);
+      transition: 0.65s;
+      position: absolute;
+      border-radius: 25px;
+      animation: changeColor 5s infinite; /* Added color change animation */
+    }
+    .btn:hover::before {
+      transform: translateX(200px);
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #ff007f;
+      }
+      to {
+        box-shadow: 0 0 20px #ff007f, 0 0 30px #ff007f, 0 0 40px #ff007f;
+      }
+    }
+    
+    @keyframes changeColor {
+      0% { background-color: #ff007f; } /* Pink */
+      25% { background-color: #00fffc; } /* Turquoise */
+      50% { background-color: #ffbe0b; } /* Yellow */
+      75% { background-color: #9b59b6; } /* Purple */
+      100% { background-color: #ff007f; } /* Back to pink */
+    }
+    .content-container {
+      max-width: 800px;
+      margin-top: 50px; /* Adjust as needed */
+      padding: 0 20px;
+      text-align: center;
+    }
+    .content-container h2 {
+      color: #00fffc; /* Sky-blue color */
+      animation: glowingText 1.5s infinite alternate; /* Added glow animation */
+    }
+
+    @keyframes glowingText {
+      from {
+        text-shadow: 0 0 10px #00fffc, 0 0 20px #00fffc, 0 0 30px #00fffc;
+      }
+      to {
+        text-shadow: 0 0 20px #00fffc, 0 0 30px #00fffc, 0 0 40px #00fffc;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="btn-container">
+    <button class="btn"><a href="index.html">HOME</a></button>
+    <button class="btn"><a href="history.html">HISTORY</a></button>
+    <button class="btn"><a href="science.html">SCIENCE</a></button>
+    <button class="btn"><a href="about.html">ABOUT</a></button>
+  </div>
+  <div class="content-container">
+    <fieldset>
+      <legend>
+    <h2>ABOUT US</h2></legend>
+      <h3>Welcome to Software Tech Official!</h3>
+
+      <p style="text-align:left">Founded by Hamzah, a passionate software engineering student at SSM College of Engineering, Pattan Parihaspora, Software Tech Official is a dynamic platform dedicated to all things technology.
+        <br>
+        <br>
+
+Based in the picturesque region of Kashmir, our team is driven by a relentless pursuit of excellence in the ever-evolving field of software engineering. With a focus on innovation, creativity, and cutting-edge solutions, we aim to make a lasting impact in the tech world.<br><br>
+        
+Whether you're a seasoned developer, a curious enthusiast, or a business looking to harness the power of technology, Software Tech Official is here to guide you on your journey. From informative articles and tutorials to insightful discussions and product reviews, we strive to provide valuable content that empowers our audience to thrive in the digital age.<br><br>
+
+For any inquiries, collaborations, or simply to say hello, feel free to reach out to us at bhatmajid707@gmail.com. Join us as we embark on this exciting adventure, shaping the future of technology one line of code at a time.
+<br><br>
+Stay connected, stay inspired, and welcome to the Software Tech Official community!</p>
+    </fieldset>
+    </div>
+</body>
+  </html>
